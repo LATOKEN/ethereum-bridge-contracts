@@ -1,0 +1,222 @@
+{
+	"compiler": {
+		"version": "0.6.4+commit.1dca32f3"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "_bridgeAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_burnList",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_contractWhitelist",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"name": "_resourceIDToTokenContractAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_tokenContractAddressToResourceID",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "setBurnable",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "resourceID",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "contractAddress",
+						"type": "address"
+					}
+				],
+				"name": "setResource",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amountOrTokenID",
+						"type": "uint256"
+					}
+				],
+				"name": "withdraw",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"setBurnable(address)": {
+					"params": {
+						"contractAddress": "Address of contract to be used when making or executing deposits."
+					}
+				},
+				"setResource(bytes32,address)": {
+					"params": {
+						"contractAddress": "Address of contract to be called when a deposit is made and a deposited is executed.",
+						"resourceID": "ResourceID to be used when making deposits."
+					}
+				},
+				"withdraw(address,address,uint256)": {
+					"params": {
+						"amountOrTokenID": "Either the amount of ERC20 tokens or the ERC721 token ID to release.",
+						"recipient": "Address to release tokens to.",
+						"tokenAddress": "Address of token contract to release."
+					}
+				}
+			},
+			"title": "Function used across handler contracts."
+		},
+		"userdoc": {
+			"methods": {
+				"setBurnable(address)": {
+					"notice": "First verifies {contractAddress} is whitelisted, then sets {_burnList}[{contractAddress}] to true."
+				},
+				"setResource(bytes32,address)": {
+					"notice": "First verifies {_resourceIDToContractAddress}[{resourceID}] and {_contractAddressToResourceID}[{contractAddress}] are not already set, then sets {_resourceIDToContractAddress} with {contractAddress}, {_contractAddressToResourceID} with {resourceID}, and {_contractWhitelist} to true for {contractAddress}."
+				},
+				"withdraw(address,address,uint256)": {
+					"notice": "Used to manually release funds from ERC safes."
+				}
+			},
+			"notice": "This contract is intended to be used with the Bridge contract."
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/handlers/HandlerHelpers.sol": "HandlerHelpers"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/handlers/HandlerHelpers.sol": {
+			"keccak256": "0x663f15ce7bcb74f717aa8eed4708540c6d59e51231e1218b495874a2c89e0097",
+			"urls": [
+				"bzz-raw://661893d064ecf05e472e7b76a8487e21f375d1c5918c36ad9aef75e8df6f3352",
+				"dweb:/ipfs/QmXEpxmSdXgd3tYHqqJD4XcEGnmU1bGZavYLa4tBxR7LVV"
+			]
+		},
+		"contracts/interfaces/IERCHandler.sol": {
+			"keccak256": "0x86538bf44b756628487de0eed8b13c8f8a8db6c131a72adb73074336105e0034",
+			"urls": [
+				"bzz-raw://39c44d3b60330ab51acf992a6da8b5fb43ba1b41ea2e80560242b24b362aeeed",
+				"dweb:/ipfs/QmeUMgQDNoS5QKAkodzF1gzS5jNpt5mGJMjNq8sMd5ZV2W"
+			]
+		}
+	},
+	"version": 1
+}

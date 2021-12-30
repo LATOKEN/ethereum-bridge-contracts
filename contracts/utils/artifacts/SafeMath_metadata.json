@@ -1,0 +1,70 @@
+{
+	"compiler": {
+		"version": "0.6.4+commit.1dca32f3"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "a",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "b",
+						"type": "uint256"
+					}
+				],
+				"name": "sub",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "Wrappers over Solidity's arithmetic operations with added overflow checks. * note that this is a stripped down version of open zeppelin's safemath https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/math/SafeMath.sol",
+			"methods": {
+				"sub(uint256,uint256)": {
+					"details": "Returns the subtraction of two unsigned integers, reverting on overflow (when the result is negative).     * Counterpart to Solidity's `-` operator.     * Requirements: - Subtraction cannot overflow."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/utils/SafeMath.sol": "SafeMath"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/utils/SafeMath.sol": {
+			"keccak256": "0xe325b2f74ff603f5cb7a1ea92808fcb8b184db0fe13dcb8f7cb37a3b102eec63",
+			"urls": [
+				"bzz-raw://6d013055cf660b0e2eaf116f06e846b741ed858021495e5896b13a34c45c03a2",
+				"dweb:/ipfs/QmURAm8y4KkSTTWdjaQHmX3y48fQD3PvQMfM3BEK2g5yDN"
+			]
+		}
+	},
+	"version": 1
+}

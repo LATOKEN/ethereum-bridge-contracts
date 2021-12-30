@@ -1,0 +1,459 @@
+{
+	"compiler": {
+		"version": "0.6.4+commit.1dca32f3"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "bridgeAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "penaltyPercentage",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rewardPercentage",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "reason",
+						"type": "string"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "relayer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "penalty",
+						"type": "uint256"
+					}
+				],
+				"name": "PenaltyForRelayer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newPercentage",
+						"type": "uint256"
+					}
+				],
+				"name": "PenaltyPercentChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "relayer",
+						"type": "address"
+					}
+				],
+				"name": "RelayerBlocked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_relayer",
+						"type": "address"
+					}
+				],
+				"name": "RelayerRegister",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_relayer",
+						"type": "address"
+					}
+				],
+				"name": "RelayerUnRegister",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "relayer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "reward",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardForRelayer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "newPercentage",
+						"type": "uint256"
+					}
+				],
+				"name": "RewardPercentageChanged",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "_penaltyPercentage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_relayerBlocked",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "_relayersExistMap",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_rewardPercentage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_relayer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "swapValue",
+						"type": "uint256"
+					}
+				],
+				"name": "alreadyExecuted",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "relayer",
+						"type": "address"
+					}
+				],
+				"name": "felony",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "isRelayer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "relayerToAdd",
+						"type": "address"
+					}
+				],
+				"name": "register",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_relayer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "swapValue",
+						"type": "uint256"
+					}
+				],
+				"name": "swapReward",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "relayerToRemove",
+						"type": "address"
+					}
+				],
+				"name": "unregister",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "penaltyPercentage",
+						"type": "uint256"
+					}
+				],
+				"name": "updatePenaltyPercentage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "rewardPercent",
+						"type": "uint256"
+					}
+				],
+				"name": "updateRewardPercentage",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"methods": {
+				"owner()": {
+					"details": "Returns the address of the current owner."
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner.     * NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/RelayerHub.sol": "RelayerHub"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/RelayerHub.sol": {
+			"keccak256": "0x583156ad578d7e3fa229dc67612b0fd8edb90434bc452499d60a55eae06a73e1",
+			"urls": [
+				"bzz-raw://2dbc09ebbfb2ca0261b6dd7df08c96eb6c66114162bdd8a8a32bd8fe13a33220",
+				"dweb:/ipfs/QmdASqvZf5VoMBzLLUhiph2oWXHBQHbpLXwkDZYsG2Jq9A"
+			]
+		},
+		"contracts/RelayerReward.sol": {
+			"keccak256": "0xe3b2217efbd81f0d4a18969b7d19ec18b6d0cf8a44eb5264a2008ba8bccdb130",
+			"urls": [
+				"bzz-raw://de8ed86b501d25354d96f7462ec1b91f11cb379b0ae689d297c2564944bdcaac",
+				"dweb:/ipfs/Qmbx8qkuqHM9DvYFEKBbeCCmrheryVDYUpoDnobgrUmjKX"
+			]
+		},
+		"contracts/Slasher.sol": {
+			"keccak256": "0xa13bef5f9eab6cf64399730932420881285e5f2374c7d2b3cfff7a5fae2120b6",
+			"urls": [
+				"bzz-raw://112d25f2499ec3125f89ecbc2f06d7f2ad60ede4fac47ed8cd538f9b6ee58abd",
+				"dweb:/ipfs/QmR8DdmgGLPT4XzjbcsWmZ1pbGd3BJXo4Dex23LSA6aswC"
+			]
+		},
+		"contracts/interfaces/IRelayerHub.sol": {
+			"keccak256": "0x174e9a2934c3704aac78106782c133c25308e558ced524c199d59fc7ab6be058",
+			"urls": [
+				"bzz-raw://77e66c3c4f2cc1f897df07254dce4782db9f71185c2ce6e6ab2fdb014141d414",
+				"dweb:/ipfs/QmeipEmtBzMwh5uLrBnHSZoKDMhGpMy17heojo84WnNwV1"
+			]
+		},
+		"contracts/libraries/SafeMath.sol": {
+			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
+			"urls": [
+				"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c",
+				"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR"
+			]
+		},
+		"contracts/utils/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		},
+		"contracts/utils/Ownable.sol": {
+			"keccak256": "0x15e2d5bd4c28a88548074c54d220e8086f638a71ed07e6b3ba5a70066fcf458d",
+			"urls": [
+				"bzz-raw://90faf5851c02f9bd42c5bfb54d4f0421a2612f50ab80b2c4fa24fa3792071cc2",
+				"dweb:/ipfs/QmRGM4F2PcGVF85aTfaA9YBhCHHDqrMhRjyp6fGeBTtirb"
+			]
+		}
+	},
+	"version": 1
+}
